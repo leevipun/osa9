@@ -1,0 +1,14 @@
+{
+  "name": "bmi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "ts-node": "ts-node",
+    "calculateBmi": "ts-node index.ts -- -s --someoption",
+    "calculateExercises": "ts-node exerciseCalculator.ts -- -s --someoption"
+  },
+  "author": "Leevi Puntanen",
+  "license": "ISC"
+}
