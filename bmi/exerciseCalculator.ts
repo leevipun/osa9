@@ -39,6 +39,10 @@ const hours = process.argv.slice(5).map(Number);
 console.log(hours.length);
 const target = hours.pop();
 
-console.log(calculateExercises(hours, target));
+if (!target || hours.some(isNaN)) {
+  console.log("Invalid input");
+} else {
+  console.log(calculateExercises(hours, target));
+}
 console.log(target);
 console.log(hours);
