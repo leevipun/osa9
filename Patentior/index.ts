@@ -1,10 +1,11 @@
 const express = require("express");
-const cors = require("cors"); // Import cors middleware
+const cors = require("cors");
 const app = express();
 import diagnosisRouter from "./routes/diagnoses";
 import patientRouter from "./routes/patient";
+app.use(express.json());
 
-app.use(cors()); // Use cors middleware
+app.use(cors());
 
 app.get("/api/ping", (_req: any, res: any) => {
   res.send("pong");
