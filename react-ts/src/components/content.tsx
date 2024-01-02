@@ -21,49 +21,54 @@ interface CoursePartBackground extends CoursePartWithDescription {
   kind: "background";
 }
 
-interface CoursePartWithRequirements extends CoursePartWithDescription {
+interface CoursePartSpecial extends CoursePartBase {
+  description: string;
   requirements: string[];
-  kind: "requirements";
+  kind: "special";
 }
 
 type CoursePart =
   | CoursePartBasic
   | CoursePartGroup
   | CoursePartBackground
-  | CoursePartWithRequirements;
+  | CoursePartSpecial;
 
 const Part = ({ part }: { part: CoursePart }) => {
   switch (part.kind) {
     case "basic":
       return (
         <div>
-          <h3>{part.name}</h3>
-          <p>Exercises: {part.exerciseCount}</p>
+          <h3>
+            {part.name} {part.exerciseCount}
+          </h3>
           <p>Description: {part.description}</p>
         </div>
       );
     case "group":
       return (
         <div>
-          <h3>{part.name}</h3>
-          <p>Exercises: {part.exerciseCount}</p>
+          <h3>
+            {part.name} {part.exerciseCount}
+          </h3>
           <p>Group projects: {part.groupProjectCount}</p>
         </div>
       );
     case "background":
       return (
         <div>
-          <h3>{part.name}</h3>
-          <p>Exercises: {part.exerciseCount}</p>
+          <h3>
+            {part.name} {part.exerciseCount}
+          </h3>
           <p>Description: {part.description}</p>
           <p>Background material: {part.backgroundMaterial}</p>
         </div>
       );
-    case "requirements":
+    case "special":
       return (
         <div>
-          <h3>{part.name}</h3>
-          <p>Exercises: {part.exerciseCount}</p>
+          <h3>
+            {part.name} {part.exerciseCount}
+          </h3>
           <p>Description: {part.description}</p>
           <p>Requirements:</p>
           <ul>
