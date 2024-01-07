@@ -24,21 +24,21 @@ const parseSsn = (Ssn: unknown): string => {
 
 const isGender = (param: string): param is Gender => {
   return Object.values(Gender).includes(param as Gender);
-}
+};
 
 const parseGender = (gender: unknown): Gender => {
-  if(!gender || !isString(gender) || !isGender(gender)) {
-    throw new Error('Incorrect or missing gender' + gender)
+  if (!gender || !isString(gender) || !isGender(gender)) {
+    throw new Error("Incorrect or missing gender" + gender);
   }
   return gender;
-}
+};
 
-const parseOccupation = (occupation: unknown): string =>{
+const parseOccupation = (occupation: unknown): string => {
   if (!occupation || !isString(occupation)) {
-    throw new Error('Incorrect or missing occupation')
+    throw new Error("Incorrect or missing occupation");
   }
-  return occupation
-}
+  return occupation;
+};
 
 const toNewPatientsEntry = (object: unknown): newPatientEntry => {
   if (!object || typeof object !== "object") {
@@ -57,12 +57,12 @@ const toNewPatientsEntry = (object: unknown): newPatientEntry => {
       ssn: parseSsn(object.ssn),
       gender: parseGender(object.gender),
       occupation: parseOccupation(object.occupation),
+      entries: [],
     };
 
     return newEntry;
   }
   throw new Error("Missing required fields");
 };
-
 
 export default toNewPatientsEntry;
